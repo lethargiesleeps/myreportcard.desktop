@@ -28,7 +28,7 @@ namespace MyReportCard.Debug
             var builderTests = new BuilderTestUnit();
 
             builderTests.UserBuilderNoTermTest(DebugText); //Passed
-            builderTests.UserBuilderWithTerms(DebugText);
+            builderTests.UserBuilderWithTerms(DebugText); //Passed
 
         }
 

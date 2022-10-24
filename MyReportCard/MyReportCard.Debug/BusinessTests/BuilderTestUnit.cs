@@ -12,6 +12,7 @@ public class BuilderTestUnit
 {
     private User? _user;
     private readonly UserBuilder _userBuilder = new();
+    private TermBuilder _termBuilder = new();
 
     /// <summary>
     /// Tests building a user object without any terms.
@@ -21,8 +22,9 @@ public class BuilderTestUnit
     public void UserBuilderNoTermTest(TextBox output)
     {
         _user = _userBuilder.SetName("Michael").SetCreationDate(DateTime.Now).BuildAndGetObject() as User;
-        output.Text = $"NAME: {_user.Name}\nDATE: {_user.CreationDate.ToShortDateString()}";
+        output.Text = $"NAME: {_user!.Name}\nDATE: {_user.CreationDate.ToShortDateString()}";
     }
+
     /// <summary>
     /// Tests building a user object without any terms.
     /// </summary>
@@ -45,5 +47,10 @@ public class BuilderTestUnit
                       $"COURSE COUNT: {_user.Terms[0].CourseCount}\n" +
                       $"END DATE: {_user.Terms[0].EndDate.ToShortDateString()}\n" +
                       $"GPA: {_user.Terms[0].Gpa}";
+    }
+
+    public void TermBuilderNoCoureTest(TextBox output)
+    {
+
     }
 }

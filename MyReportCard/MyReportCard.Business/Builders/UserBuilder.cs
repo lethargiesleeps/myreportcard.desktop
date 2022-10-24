@@ -11,7 +11,7 @@ namespace MyReportCard.Business.Builders;
 /// </summary>
 public class UserBuilder : IBuildable
 {
-    private User _user;
+    private readonly User _user;
 
     /// <summary>
     /// Default constructor for UserBuilder, sets CreationDate to current Date.
