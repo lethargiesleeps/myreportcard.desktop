@@ -1,10 +1,10 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Windows.Documents;
 
 namespace MyReportCard.Data.Models;
+
 /// <summary>
-/// Term DTO.
+///     Term DTO.
 /// </summary>
 public class Term
 {
@@ -15,9 +15,5 @@ public class Term
     public User? User { get; set; }
     public float Gpa { get; set; }
     public bool IsDeansHonour { get; set; }
-    public List<Course> Courses { get; set; } = new List<Course>();
-
-
-
-
+    public List<Course> Courses { get; set; } = new();
 }

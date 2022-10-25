@@ -1,18 +1,18 @@
-<Project Sdk="Microsoft.NET.Sdk">
+﻿<Project Sdk="Microsoft.NET.Sdk">
 
-  <PropertyGroup>
-    <TargetFramework>net6.0-windows</TargetFramework>
-    <Nullable>enable</Nullable>
-    <UseWPF>true</UseWPF>
-  </PropertyGroup>
+	<PropertyGroup>
+		<TargetFramework>net6.0-windows</TargetFramework>
+		<Nullable>enable</Nullable>
+		<UseWPF>true</UseWPF>
+	</PropertyGroup>
 
-  <ItemGroup>
-    <Folder Include="Builders\" />
-    <Folder Include="JsonSerialize\JsonFiles\" />
-  </ItemGroup>
+	<ItemGroup>
+		<Folder Include="Builders\" />
+		<Folder Include="JsonSerialize\JsonFiles\" />
+	</ItemGroup>
 
-  <ItemGroup>
-    <ProjectReference Include="..\MyReportCard.Data\MyReportCard.Data.csproj" />
-  </ItemGroup>
+	<ItemGroup>
+		<ProjectReference Include="..\MyReportCard.Data\MyReportCard.Data.csproj" />
+	</ItemGroup>
 
 </Project>

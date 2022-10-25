@@ -1,37 +1,25 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows;
-using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
-using System.Windows.Input;
-using System.Windows.Media;
-using System.Windows.Media.Imaging;
-using System.Windows.Navigation;
-using System.Windows.Shapes;
+﻿using System.Windows;
 using MyReportCard.Debug.BusinessTests;
 
-namespace MyReportCard.Debug
+namespace MyReportCard.Debug;
+
+/// <summary>
+///     Interaction logic for MainWindow.xaml
+/// </summary>
+public partial class MainWindow : Window
 {
     /// <summary>
-    /// Interaction logic for MainWindow.xaml
+    ///     This Window serves to display results of tests as output.
     /// </summary>
-    public partial class MainWindow : Window
+    public MainWindow()
     {
+        InitializeComponent();
+        var builderTests = new BuilderTestUnit();
 
-        public MainWindow()
-        {
-            InitializeComponent();
-            var builderTests = new BuilderTestUnit();
-
-            builderTests.UserBuilderNoTermTest(DebugText); //Passed
-            builderTests.UserBuilderWithTerms(DebugText); //Passed
-
-        }
-
-
+        builderTests.UserBuilderNoTermTest(DebugText); //Passed
+        builderTests.UserBuilderWithTerms(DebugText); //Passed
+        builderTests.TermBuilderNoCourseTest(DebugText); //Passed
+        builderTests.TermBuilderWithCoursesTest(DebugText); //Fail
+        builderTests.ComplexTermBuilderTest(DebugText); //Passed
     }
 }

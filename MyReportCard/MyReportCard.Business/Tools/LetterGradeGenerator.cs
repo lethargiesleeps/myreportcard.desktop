@@ -1,16 +1,16 @@
 ﻿using System.ComponentModel;
 using System.Text;
-
-namespace MyReportCard.Business.Tools;
 using MyReportCard.Data.Tools;
 
+namespace MyReportCard.Business.Tools;
+
 /// <summary>
-/// This static singleton's sole purpose is to return the appropriate letter grade.
+///     This static singleton's sole purpose is to return the appropriate letter grade.
 /// </summary>
 public static class LetterGradeGenerator
 {
     /// <summary>
-    /// Returns string in letter grade format based on an enum.
+    ///     Returns string in letter grade format based on an enum.
     /// </summary>
     /// <param name="letterGrade">The letter grade enum argument.</param>
     /// <returns>The letter grade.</returns>
