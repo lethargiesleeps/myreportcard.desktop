@@ -15,7 +15,7 @@ public static class LetterGradeGenerator
     /// <param name="letterGrade">The letter grade enum argument.</param>
     /// <returns>The letter grade.</returns>
     /// <exception cref="InvalidEnumArgumentException">Throws when an inappropriate enum is passed.</exception>
-    public static string GenerateLetterGrade(LetterGrade letterGrade)
+    public static char[] GenerateLetterGrade(LetterGrade letterGrade)
     {
         var sb = new StringBuilder();
         switch (letterGrade)
@@ -73,6 +73,6 @@ public static class LetterGradeGenerator
                     $"Passed an invalid argument of type {letterGrade.GetType().FullName}");
         }
 
-        return sb.ToString();
+        return sb.ToString().ToCharArray();
     }
 }

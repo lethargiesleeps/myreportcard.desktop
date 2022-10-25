@@ -48,9 +48,9 @@ public class BuilderTestUnit
                       $"DATE: {_user.CreationDate.ToShortDateString()}\n" +
                       "==============================\n" +
                       "TERM INFO:\n" +
-                      $"COURSE COUNT: {_user.Terms[0].CourseCount}\n" +
-                      $"END DATE: {_user.Terms[0].EndDate.ToShortDateString()}\n" +
-                      $"GPA: {_user.Terms[0].Gpa}";
+                      $"COURSE COUNT: {_user.Terms[0]!.CourseCount}\n" +
+                      $"END DATE: {_user.Terms[0]!.EndDate.ToShortDateString()}\n" +
+                      $"GPA: {_user.Terms[0]!.Gpa}";
     }
 
     /// <summary>
@@ -72,23 +72,22 @@ public class BuilderTestUnit
     /// <summary>
     ///     Tests building a Term object with courses.
     /// </summary>
-    /// <remarks>Test Failed. Does not print Course information.</remarks>
+    /// <remarks>Test Passed: 10/25/2022</remarks>
     /// <param name="output">The TextBox element to display output.</param>
     public void TermBuilderWithCoursesTest(TextBox output)
     {
-        //TODO: Get this test to pass.
         _term = _termBuilder.SetStartDate(DateTime.Now).SetEndDate(DateTime.MaxValue).SetGpa(5f)
             .SetTitle("Summer").SetCourses(new List<Course>
             {
                 new()
                 {
-                    CourseCode = "CST1234",
+                    CourseCode = "CST1234".ToCharArray(),
                     Gpa = 4.0f,
                     IsExemptOrWithdrawn = false
                 },
                 new()
                 {
-                    CourseCode = "CST4321",
+                    CourseCode = "CST4321".ToCharArray(),
                     Gpa = 4f,
                     IsExemptOrWithdrawn = false
                 }

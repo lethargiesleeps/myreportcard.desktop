@@ -28,8 +28,13 @@ public class TermBuilder : IBuildable
     /// <returns>The term object.</returns>
     public object BuildAndGetObject()
     {
+        _term.CourseCount = _term.Courses.Count;
+        if(_term.CourseCount > 0)
+            foreach (var c in _term.Courses)
+                c.Term = _term;
         return _term;
     }
+
 
     /// <summary>
     ///     Sets the title of the term.
@@ -68,10 +73,11 @@ public class TermBuilder : IBuildable
     ///     Sets the User of the term.
     /// </summary>
     /// <param name="user">The User object.</param>
+    /// <exception cref="ArgumentNullException">Throws if User is null.</exception>
     /// <returns>The current TermBuilder.</returns>
     public TermBuilder SetUser(User user)
     {
-        _term.User = user;
+        _term.User = user ?? throw new ArgumentNullException(nameof(user));
         return this;
     }
 
@@ -82,18 +88,7 @@ public class TermBuilder : IBuildable
     /// <returns>The current TermBuilder</returns>
     public TermBuilder SetUser(UserBuilder userBuilder)
     {
-        _term.User = userBuilder.BuildAndGetObject() as User;
-        return this;
-    }
-
-    /// <summary>
-    ///     Sets the course count value.
-    /// </summary>
-    /// <param name="courseCount">Count of courses in course list.</param>
-    /// <returns>The current TermBuilder</returns>
-    public TermBuilder SetCourseCount(int courseCount)
-    {
-        _term.CourseCount = courseCount;
+        _term.User = userBuilder.BuildAndGetObject() as User ?? throw new ArgumentNullException(nameof(userBuilder));
         return this;
     }
 
@@ -101,7 +96,7 @@ public class TermBuilder : IBuildable
     ///     Sets the term's GPA.
     /// </summary>
     /// <param name="gpa">GPA value</param>
-    /// <returnsThe current TermBuilder></returns>
+    /// <returns>The current TermBuilder></returns>
     public TermBuilder SetGpa(float gpa)
     {
         if (gpa > 4.0f)
@@ -133,7 +128,7 @@ public class TermBuilder : IBuildable
     public TermBuilder SetCourses(List<Course> courses)
     {
         if (courses is null || courses.Count <= 0) throw new ArgumentNullException(nameof(courses));
-        _term.Courses = new List<Course>();
+        _term.Courses = courses;
         return this;
     }
 
@@ -163,20 +158,6 @@ public class TermBuilder : IBuildable
         if (course is null) throw new ArgumentNullException(nameof(course));
         _term.Courses ??= new List<Course>();
         _term.Courses.Add(course);
-        return this;
-    }
-
-    /// <summary>
-    ///     Removes a course from the courses list.
-    /// </summary>
-    /// <param name="course">The course to be removed</param>
-    /// <returns>The current TermBuilder</returns>
-    /// <exception cref="ArgumentNullException">Throws if course is null.</exception>
-    public TermBuilder RemoveCourse(Course course)
-    {
-        if (course is null) throw new ArgumentNullException(nameof(course));
-        _term.Courses ??= new List<Course>();
-        _term.Courses.Remove(course);
         return this;
     }
 }

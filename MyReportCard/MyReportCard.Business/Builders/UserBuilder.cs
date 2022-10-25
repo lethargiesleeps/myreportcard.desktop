@@ -29,6 +29,9 @@ public class UserBuilder : IBuildable
     /// <returns>The user object</returns>
     public object BuildAndGetObject()
     {
+        if(_user.Terms.Count > 0)
+            foreach (var t in _user.Terms)
+                t.User = _user;
         return _user;
     }
 
