@@ -8,7 +8,6 @@
 
 	<ItemGroup>
 		<Folder Include="Builders\" />
-		<Folder Include="JsonSerialize\JsonFiles\" />
 	</ItemGroup>
 
 	<ItemGroup>

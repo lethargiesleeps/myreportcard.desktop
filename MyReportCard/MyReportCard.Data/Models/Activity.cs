@@ -12,5 +12,5 @@ public class Activity
     public float TotalPoints { get; set; }
     public char[] LetterGrade { get; set; } = new char[3];
     public float Percentage { get; set; }
-    public Course Course { get; set; }
+    
 }

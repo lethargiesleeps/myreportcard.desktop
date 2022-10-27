@@ -39,7 +39,6 @@ public class BuilderTestUnit
         _user = _userBuilder.SetName("Michael").SetCreationDate(DateTime.Now).AddTerm(
             new Term
             {
-                User = _user!,
                 CourseCount = 55,
                 EndDate = new DateTime(2023, 11, 5),
                 Gpa = 4.0f
@@ -117,11 +116,10 @@ public class BuilderTestUnit
                 new TermBuilder().SetTitle("Fall").SetGpa(2.3f).BuildAndGetObject() as Term,
                 new TermBuilder().SetTitle("Winter").SetGpa(3.4f).BuildAndGetObject() as Term
             }).AddTerm(_term).BuildAndGetObject() as User;
-        foreach (var userTerm in _user!.Terms) userTerm!.User = _user;
         var sb = new StringBuilder();
         sb.Append($"USER: {_user.Name}\n========================");
         foreach (var userTerm in _user.Terms)
-            sb.Append($"TERM NAME: {userTerm!.Title}\nGPA: {userTerm.Gpa}\nUSER: {userTerm.User!.Name}");
+            sb.Append($"TERM NAME: {userTerm!.Title}\nGPA: {userTerm.Gpa}\n");
 
         output.Text = sb.ToString();
         try

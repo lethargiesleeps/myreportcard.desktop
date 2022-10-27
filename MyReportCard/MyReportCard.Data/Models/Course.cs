@@ -8,7 +8,7 @@ namespace MyReportCard.Data.Models;
 /// </summary>
 public class Course
 {
-    public Term? Term { get; set; }
+    
     public char[]? CourseCode { get; set; }
     public string? Name { get; set; }
     public float Gpa { get; set; }

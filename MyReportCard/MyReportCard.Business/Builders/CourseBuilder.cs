@@ -28,9 +28,6 @@ public class CourseBuilder : IBuildable
     public object BuildAndGetObject()
     {
         _course.ActivityCount = _course.Activities.Count;
-        if(_course.ActivityCount > 0)
-            foreach(var a in _course.Activities)
-                a.Course = _course;
         return _course;
     }
 
@@ -197,28 +194,4 @@ public class CourseBuilder : IBuildable
         return this;
     }
 
-    /// <summary>
-    ///     Sets the Course's Term instance.
-    /// </summary>
-    /// <param name="term">An instance of Term.</param>
-    /// <returns>The current CourseBuilder object.</returns>
-    /// <exception cref="ArgumentNullException">Throws if Term is null.</exception>
-    public CourseBuilder SetTerm(Term term)
-    {
-        _course.Term = term ?? throw new ArgumentNullException(nameof(term));
-        return this;
-    }
-
-    /// <summary>
-    ///     Sets the Course's Term instance using a TermBuilder.
-    /// </summary>
-    /// <param name="termBuilder">The term builder being used.</param>
-    /// <returns>The current CourseBuilder object.</returns>
-    /// <exception cref="ArgumentNullException">Throws if termBuilder is null.</exception>
-    public CourseBuilder SetTerm(TermBuilder termBuilder)
-    {
-        _course.Term = termBuilder.BuildAndGetObject() as Term ??
-                       throw new ArgumentNullException(nameof(termBuilder));
-        return this;
-    }
 }

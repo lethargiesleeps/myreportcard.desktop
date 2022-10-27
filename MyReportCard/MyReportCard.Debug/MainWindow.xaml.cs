@@ -15,11 +15,14 @@ public partial class MainWindow : Window
     {
         InitializeComponent();
         var builderTests = new BuilderTestUnit();
+        var serializeTests = new SerializeTests();
 
         builderTests.UserBuilderNoTermTest(DebugText); //Passed
         builderTests.UserBuilderWithTerms(DebugText); //Passed
         builderTests.TermBuilderNoCourseTest(DebugText); //Passed
         builderTests.TermBuilderWithCoursesTest(DebugText); //Fail
         builderTests.ComplexTermBuilderTest(DebugText); //Passed
+        serializeTests.SerializeTest(DebugText);
+
     }
 }

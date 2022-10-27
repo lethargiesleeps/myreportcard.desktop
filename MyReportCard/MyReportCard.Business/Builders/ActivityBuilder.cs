@@ -157,29 +157,4 @@ public class ActivityBuilder : IBuildable
         _activity.Percentage = percentage < 0.0f ? 0.0f : percentage;
         return this;
     }
-
-    /// <summary>
-    ///     Sets the Activity's Course instance.
-    /// </summary>
-    /// <param name="course">An instance of Course.</param>
-    /// <returns>The current ActivityBuilder.</returns>
-    /// <exception cref="ArgumentNullException">Throws if Course is null.</exception>
-    public ActivityBuilder SetCourse(Course course)
-    {
-        _activity.Course = course ?? throw new ArgumentNullException(nameof(course));
-        return this;
-    }
-
-    /// <summary>
-    ///     Sets the Activity's Course instance using a CourseBuilder.
-    /// </summary>
-    /// <param name="courseBuilder">The courseBuilder being used.</param>
-    /// <returns>The current ActivityBuilder.</returns>
-    /// <exception cref="ArgumentNullException">Throws if courseBuilder is null.</exception>
-    public ActivityBuilder SetCourse(CourseBuilder courseBuilder)
-    {
-        _activity.Course = courseBuilder.BuildAndGetObject() as Course ??
-                           throw new ArgumentNullException(nameof(courseBuilder));
-        return this;
-    }
 }

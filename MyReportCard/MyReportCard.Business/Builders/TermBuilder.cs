@@ -29,9 +29,6 @@ public class TermBuilder : IBuildable
     public object BuildAndGetObject()
     {
         _term.CourseCount = _term.Courses.Count;
-        if(_term.CourseCount > 0)
-            foreach (var c in _term.Courses)
-                c.Term = _term;
         return _term;
     }
 
@@ -66,29 +63,6 @@ public class TermBuilder : IBuildable
     public TermBuilder SetStartDate(DateTime startDate)
     {
         _term.StartDate = startDate;
-        return this;
-    }
-
-    /// <summary>
-    ///     Sets the User of the term.
-    /// </summary>
-    /// <param name="user">The User object.</param>
-    /// <exception cref="ArgumentNullException">Throws if User is null.</exception>
-    /// <returns>The current TermBuilder.</returns>
-    public TermBuilder SetUser(User user)
-    {
-        _term.User = user ?? throw new ArgumentNullException(nameof(user));
-        return this;
-    }
-
-    /// <summary>
-    ///     Sets the User of the term using a UserBuilder.
-    /// </summary>
-    /// <param name="userBuilder">The UserBuilder object used to generate the User.</param>
-    /// <returns>The current TermBuilder</returns>
-    public TermBuilder SetUser(UserBuilder userBuilder)
-    {
-        _term.User = userBuilder.BuildAndGetObject() as User ?? throw new ArgumentNullException(nameof(userBuilder));
         return this;
     }
 
