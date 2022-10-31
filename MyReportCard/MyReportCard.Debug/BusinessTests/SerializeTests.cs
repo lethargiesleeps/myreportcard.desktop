@@ -6,6 +6,7 @@ using System.Text.Json;
 using System.Windows.Controls;
 using MyReportCard.Business.JsonSerialize;
 using MyReportCard.Business.Tools;
+using MyReportCard.Data.Models;
 
 namespace MyReportCard.Debug.BusinessTests;
 
@@ -16,15 +17,10 @@ public class SerializeTests
 
     public void SerializeTest(TextBox debugText)
     {
-        
+        _serializer = new UserSerializer();
         _user = new DummyUser();
-        JsonSerializerOptions options = new JsonSerializerOptions();
-        var path = Environment.GetFolderPath(Environment.SpecialFolder.UserProfile) + @"\AppData\data.json";
-        options.WriteIndented = true;
-        var json = JsonSerializer.Serialize(_user.User, options);
-        File.WriteAllText(path, json);
-        
-        debugText.Text = path + json.ToString();
-
+        System.Diagnostics.Debug.Assert(_user.User != null, "_user.User != null");
+        _serializer.Serialize(_user.User);
+        var unserializedUser = _serializer.Deserialize();
     }
 }

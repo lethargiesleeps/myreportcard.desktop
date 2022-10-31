@@ -4,7 +4,7 @@ using System.Text.Json;
 using System.Text.Json.Serialization;
 using System.IO;
 
-namespace MyReportCard.Business.JsonSerialize;
+namespace MyReportCard.Business.Storage;
 
 public class UserSerializer : ISerializable
 {
@@ -16,7 +16,7 @@ public class UserSerializer : ISerializable
         
     }
 
-    public User? Deserialize()
+    public User? Deserialize(string json)
     {
         var json = File.ReadAllText(_path);
         return JsonSerializer.Deserialize<User>(json);

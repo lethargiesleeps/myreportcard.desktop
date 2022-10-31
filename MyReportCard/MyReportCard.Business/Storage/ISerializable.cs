@@ -1,9 +1,9 @@
 ﻿using MyReportCard.Data.Models;
 
-namespace MyReportCard.Business.JsonSerialize;
+namespace MyReportCard.Business.Storage;
 
 public interface ISerializable
 {
     void Serialize(User user);
-    User? Deserialize();
+    User? Deserialize(string json);
 }
